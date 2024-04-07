@@ -287,6 +287,52 @@
         <artifactId>cyclonedx-maven-plugin</artifactId>
       </plugin>
 
+       <!-- Enable Liberty Maven plugin -->
+      <!-- tag::libertyMavenPlugin[] -->
+      <plugin>
+        <groupId>io.openliberty.tools</groupId>
+        <artifactId>liberty-maven-plugin</artifactId>
+        <version>3.8.2</version>
+        <configuration>
+          <runtimeArtifact>
+            <groupId>io.openliberty.beta</groupId>
+            <artifactId>openliberty-runtime</artifactId>
+            <version>LATEST</version>
+            <type>zip</type>
+          </runtimeArtifact>
+
+          <!-- tag::appsDirectory[] -->
+          <appsDirectory>apps</appsDirectory>
+          <!-- end::appsDirectory[] -->
+          <!-- tag::installAppPackages[] -->
+          <installAppPackages>spring-boot-project</installAppPackages>
+          <!-- end::installAppPackages[] -->
+          <!-- tag::include[] -->
+          <include>minify,runnable</include>
+          <!-- end::include[] -->
+          <!-- tag::packageFile[] -->
+          <packageName>liberty-spring-petclinic</packageName>
+          <packageType>jar</packageType>
+          <!-- end::packageFile[] -->
+        </configuration>
+        <!-- tag::packageGoals[] -->
+        <executions>
+          <execution>
+            <id>package-server</id>
+            <phase>package</phase>
+            <goals>
+              <goal>create</goal>
+              <goal>install-feature</goal>
+              <goal>deploy</goal>
+              <goal>package</goal>
+            </goals>
+          </execution>
+        </executions>
+        <!-- end::packageGoals[] -->
+      </plugin>
+      <!-- end::libertyMavenPlugin[] -->
+      <!-- End of Liberty Maven plugin -->
+
     </plugins>
   </build>
   <licenses>
