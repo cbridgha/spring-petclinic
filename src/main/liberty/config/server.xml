@@ -19,7 +19,7 @@
 
     <!-- tag::springBootApplication[] -->
     <springBootApplication id="spring-petclinic" 
-                           location="thin-spring-petclinic-3.2.0-SNAPSHOT.jar"
+                           location="thin-spring-petclinic-3.4.0-SNAPSHOT.jar"
                            name="spring-petclinic" />
     <!-- end::springBootApplication[] -->
 
